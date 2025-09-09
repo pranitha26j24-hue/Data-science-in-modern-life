@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Portfolio Presentation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slideshow {
+      width: 80%;
+      height: 80%;
+      background: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    .slide {
+      display: none;
+    }
+    .active {
+      display: block;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .controls {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+    }
+    button {
+      background: #444;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow">
+    <!-- Slides -->
+    <div class="slide active"><h2>Digital Portfolio</h2><p>Student: SK Pranitha<br>Register No: 2426J1541<br>Department: IT<br>KPR College</p></div>
+    
+    <div class="slide"><h2>Project Title</h2><p>Data Science in Modern Life</p></div>
+    
+    <div class="slide"><h2>Agenda</h2><p>Problem Statement<br>Project Overview<br>End Users<br>Tools & Technologies<br>Portfolio Design<br>Features & Functionality<br>Results<br>Conclusion<br>Github Link</p></div>
+    
+    <div class="slide"><h2>Problem Statement</h2><p>Enormous data is generated every second. Without proper storage, analysis & decision-making, insights remain hidden. Data-driven solutions are essential for efficiency, innovation, and life improvement.</p></div>
+    
+    <div class="slide"><h2>Project Overview</h2><p>Explores Data Science in Healthcare, Education, Smart Cities.<br>Demonstrates tools, models, and real-world solutions.</p></div>
+    
+    <div class="slide"><h2>End Users</h2><p>Healthcare Professionals<br>Businesses & Enterprises<br>Government & Policy Makers<br>Students & Researchers<br>Common People</p></div>
+    
+    <div class="slide"><h2>Tools & Technologies</h2><p>Python, R, Pandas, NumPy, Matplotlib, Scikit-learn<br>ML Models: Regression, Classification, Clustering<br>Big Data: Hadoop, Spark<br>Visualization: Power BI, Tableau<br>Version Control: GitHub</p></div>
+    
+    <div class="slide"><h2>Portfolio Design</h2><p>Clear layout with visuals.<br>Flow: Problem → Solution → Implementation → Results.<br>Consistent theme & professional palette.</p></div>
+    
+    <div class="slide"><h2>Features & Functionality</h2><p>Data Collection<br>Data Cleaning & Preprocessing<br>Data Analysis<br>Prediction & Insights<br>Visualization</p></div>
+    
+    <div class="slide"><h2>Conclusion</h2><p>Data Science drives efficiency, accuracy & innovation.<br>Its impact will grow with AI & ML advancements.<br>Transforms raw data into meaningful knowledge.</p></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="prevSlide()">⬅ Prev</button>
+    <button onclick="nextSlide()">Next ➡</button>
+  </div>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
